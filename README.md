@@ -1,29 +1,28 @@
-# Liane’s Library
+Liane's Library App
+A simple library management app built with Streamlit, SQLite, and SQLAlchemy.
+This app allows users to:
+Add books and friends
+Borrow and return books
+Track borrowing activity and history
+Prevent duplicate borrowing
+Delete records
+Tech Stack
+Python
+Streamlit
+SQLite
+SQLAlchemy
+How to Run
+Clone the repository:
+git clone https://github.com/Benguelees/lianes-library-app.git
+Go into the project folder:
+cd lianes-library-app
+Install dependencies:
+pip install streamlit sqlalchemy pandas
+Run the app:
+streamlit run app.py
+Screenshots
+Overview
 
-Liane’s Library is a simple Streamlit app to track books, friends, and borrowed books.
+Borrowing a Book
 
-## What this project does
-This app allows you to:
-- Add books
-- Add friends
-- Borrow books
-- Return books
-- Track who borrowed what
-- Delete books, friends, and loan records
-
-## Tech Stack
-- Python
-- Streamlit
-- SQLAlchemy
-- SQLite
-
-## Screenshots
-
-### Overview
-![Overview](screenshots/overview.png)
-
-### Borrowing a Book
-![Booking](screenshots/booking.png)
-
-### Deleting Records
-![Deleting](screenshots/deleting.png)
+Deleting Records

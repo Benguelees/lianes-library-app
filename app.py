@@ -193,14 +193,17 @@ if available_books and friends:
             elif already_borrowed:
                 st.error("This book is already borrowed!")
             else:
-                connection.execute(text("""
-                    INSERT INTO loans (book_id, friend_id, borrow_date, returned)
-                    VALUES (:book_id, :friend_id, :borrow_date, 0)
-                """), {
-                    "book_id": book_id,
-                    "friend_id": friend_id,
-                    "borrow_date": borrow_date_str
-                })
+                connection.execute(
+    text("""
+        INSERT INTO loans (book_id, friend_id, borrow_date, returned)
+        VALUES (:book_id, :friend_id, :borrow_date, 0)
+    """),
+    {
+        "book_id": book_id,
+        "friend_id": friend_id,
+        "borrow_date": borrow_date_str
+    }
+)
                 connection.commit()
                 st.success("Loan saved. Refresh the page if you do not see it immediately.")
 else:
@@ -222,7 +225,7 @@ with left_col:
     with engine.connect() as connection:
         loans_result = connection.execute(text("""
             SELECT
-                books.title AS book,
+                 books.title AS book,
                 friends.name AS friend,
                 loans.borrow_date AS borrow_date
             FROM loans

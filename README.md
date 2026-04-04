@@ -10,6 +10,19 @@ The application allows users to manage a collection of books and track borrowing
 
 ---
 
+
+## Screenshots
+
+### Overview
+![Overview](screenshots/overview.png)
+
+### Borrow System
+![Borrow](screenshots/booking.png)
+
+### Delete Functionality
+![Delete](screenshots/deleting.png)
+
+
 ## 🧠 Key Features
 
 - Add and manage books and friends

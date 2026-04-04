@@ -61,7 +61,7 @@ This structure simulates a relational database system where:
 ## ▶️ How to Run
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/lianes-library-app.git
+git clone https://github.com/Benguelees/lianes-library-app.git
 cd lianes-library-app
 pip install streamlit sqlalchemy pandas
 python db_setup.py

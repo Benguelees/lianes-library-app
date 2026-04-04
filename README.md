@@ -1,13 +1,6 @@
 # Liane's Library App
 
-A simple library management app built with Streamlit, SQLite, and SQLAlchemy.
-
-This app allows users to:
-- Add books and friends
-- Borrow and return books
-- Track borrowing activity and history
-- Prevent duplicate borrowing
-- Delete records
+This project is a small library management system designed to simulate real-world data handling scenarios such as tracking relationships between entities (books, users, and loans), preventing duplicate transactions, and maintaining data integrity.
 
 ---
 

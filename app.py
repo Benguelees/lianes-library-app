@@ -6,7 +6,14 @@ from datetime import date
 engine = create_engine("sqlite:///liane_library.db")
 
 st.set_page_config(page_title="Liane's Library", layout="wide")
-
+st.markdown("""
+    <style>
+        .block-container {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+    </style>
+""", unsafe_allow_html=True)
 st.title("Liane's Library")
 st.caption("Track books, friends, and borrowed books.")
 

@@ -24,12 +24,13 @@ This project was built to practice connecting Python with SQL and creating a sim
 ---
 
 ## App Overview
-![App Overview](screenshots/overview.png)
+Main interface showing current loans and return functionality.
 
+![App Overview](screenshots/overview.png)
 ---
 
 ## Top Borrowers Insight
-Shows the most active borrowers based on total number of loans.
+This feature uses SQL aggregation to identify the most active borrowers based on total loan count.
 
 ![Top Borrowers](screenshots/top_borrowers.png)
 

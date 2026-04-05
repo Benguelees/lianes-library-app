@@ -9,9 +9,9 @@ st.set_page_config(page_title="Liane's Library", layout="wide")
 st.markdown("""
     <style>
         .block-container {
-            padding-top: 0.3rem !important;
-            padding-bottom: 1rem;
+            padding-top: 0.6rem !important;
         }
+        header {visibility: hidden;}
     </style>
 """, unsafe_allow_html=True)
 st.title("Liane's Library")
@@ -295,6 +295,37 @@ with right_col:
 st.write("---")
 
 # --------------------------
+# Top Borrowers
+# --------------------------
+st.subheader("Insights")
+st.caption("Top borrowers based on number of loans.")
+
+with engine.connect() as connection:
+    top_borrowers_result = connection.execute(text("""
+        SELECT
+            friends.name,
+            COUNT(*) AS total_loans
+        FROM loans
+        JOIN friends ON loans.friend_id = friends.id
+        GROUP BY friends.name
+        ORDER BY total_loans DESC, friends.name
+    """))
+
+    top_borrowers_df = pd.DataFrame(
+        top_borrowers_result.fetchall(),
+        columns=top_borrowers_result.keys()
+    )
+
+if not top_borrowers_df.empty:
+    st.markdown(top_borrowers_df.to_html(index=False), unsafe_allow_html=True)
+else:
+    st.write("No borrowing data yet.")
+
+st.write("---")
+
+
+
+# --------------------------
 # Loan History
 # --------------------------
 st.subheader("Loan History")
@@ -324,34 +355,6 @@ else:
 
 st.write("---")
 
-
-# --------------------------
-# Top Borrowers
-# --------------------------
-st.subheader("Top Borrowers")
-
-with engine.connect() as connection:
-    top_borrowers_result = connection.execute(text("""
-        SELECT
-            friends.name,
-            COUNT(*) AS total_loans
-        FROM loans
-        JOIN friends ON loans.friend_id = friends.id
-        GROUP BY friends.name
-        ORDER BY total_loans DESC, friends.name
-    """))
-
-    top_borrowers_df = pd.DataFrame(
-        top_borrowers_result.fetchall(),
-        columns=top_borrowers_result.keys()
-    )
-
-if not top_borrowers_df.empty:
-    st.markdown(top_borrowers_df.to_html(index=False), unsafe_allow_html=True)
-else:
-    st.write("No borrowing data yet.")
-
-st.write("---")
 
 
 # --------------------------
